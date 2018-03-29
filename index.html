@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>时间: 六库vs拉克罗斯</title>
+		<link rel="shortcut icon" type="image/x-icon" href="img/time.ico" media="screen" />
+		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style type="text/css">
+			body {
+				margin-top: 2%;
+				min-height: 600px;
+				max-width: 600px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h2>拉克罗斯 当前时间:</h2>
+			</div>
+			<div class="panel-body">
+				<h3 id="lax"></h3>
+			</div>
+		</div>
+		
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				<h2>六库/丽江 当前时间:</h2>
+			</div>
+			<div class="panel-body">
+				<h3 id="liu-ku"></h3>
+			</div>
+		</div>
+
+		<div class="alert alert-warning" role="alert">提示: 李荔/杨建平 同志专用</div>
+	</body>
+	<script>
+		var weeks = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+		var months = new Array("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
+		var now = new Date();
+		
+		//六库时间
+		function displayLiuKuTime() {
+			let elt = document.getElementById("liu-ku");
+			elt.innerHTML = now.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
+			setInterval(displayLaxTime, 1000);
+		}
+
+		// LAX时间
+		function displayLaxTime() {
+			let elt = document.getElementById("lax");
+			elt.innerHTML = now.toLocaleString('zh-CN', { timeZone: 'America/Chicago' });
+			setInterval(displayLiuKuTime, 1000);
+		}
+
+		$(document).ready(function() {
+			displayLiuKuTime();
+			displayLaxTime();
+		});
+	</script>
+</html>

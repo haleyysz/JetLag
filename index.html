@@ -41,26 +41,13 @@
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script>
-		$(document).ready(function() {
-			displayLiuKuTime();
-			displayLaxTime();
-		});
-		var weeks = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
-		var months = new Array("1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月");
-		var now = new Date();
-		
-		//六库时间
-		function displayLiuKuTime() {
-			let elt = document.getElementById("liu-ku");
-			elt.innerHTML = now.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
-			setInterval(displayLaxTime, 1000);
-		}
-
-		// LAX时间
-		function displayLaxTime() {
-			let elt = document.getElementById("lax");
-			elt.innerHTML = now.toLocaleString('zh-CN', { timeZone: 'America/Chicago' });
-			setInterval(displayLiuKuTime, 1000);
-		}
+		(function showTime() {
+			var now = new Date();
+			document.getElementById("liu-ku").innerHTML = now.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
+			document.getElementById("lax").innerHTML = now.toLocaleString('zh-CN', { timeZone: 'America/Chicago' });
+			setTimeout(function() {
+				showTime();
+			}, 1000);
+		})()
 	</script>
 </html>

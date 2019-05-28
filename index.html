@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>时间: 六库vs拉克罗斯</title>
+		<title>时间: 六库vs西雅图</title>
 		<link rel="shortcut icon" type="image/x-icon" href="img/favico.ico" media="screen">
 		<link rel="Bookmark" href="img/favico.ico">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
@@ -20,10 +20,10 @@
 	<body>
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h2>拉克罗斯 当前时间:</h2>
+				<h2>西雅图 当前时间:</h2>
 			</div>
 			<div class="panel-body">
-				<h3 id="lax"></h3>
+				<h3 id="seattle"></h3>
 			</div>
 		</div>
 		
@@ -32,7 +32,7 @@
 				<h2>六库/丽江 当前时间:</h2>
 			</div>
 			<div class="panel-body">
-				<h3 id="liu-ku"></h3>
+				<h3 id="liuKu"></h3>
 			</div>
 		</div>
 
@@ -43,8 +43,8 @@
 	<script>
 		(function showTime() {
 			var now = new Date();
-			document.getElementById("liu-ku").innerHTML = now.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
-			document.getElementById("lax").innerHTML = now.toLocaleString('zh-CN', { timeZone: 'America/Chicago' });
+			document.getElementById("liuKu").innerHTML = now.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
+			document.getElementById("seattle").innerHTML = now.toLocaleString('zh-CN', { timeZone: 'America/Los_Angeles' });
 			setTimeout(function() {
 				showTime();
 			}, 1000);

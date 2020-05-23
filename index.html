@@ -2,49 +2,55 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 		<title>时间: 六库vs西雅图</title>
 		<link rel="shortcut icon" type="image/x-icon" href="img/favico.ico" media="screen">
 		<link rel="Bookmark" href="img/favico.ico">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<style type="text/css">
 			body {
-				margin-top: 2%;
 				min-height: 600px;
 				max-width: 600px;
 				margin-left: auto;
 				margin-right: auto;
 			}
+
+			#container {
+				margin: 5%;
+			}
 		</style>
 	</head>
 
 	<body>
-		<div class="panel panel-primary">
-			<div class="panel-heading">
-				<h2>西雅图 当前时间:</h2>
+		<div id="container">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h2>西雅图 当前时间:</h2>
+				</div>
+				<div class="panel-body">
+					<h3 id="seattle"></h3>
+				</div>
 			</div>
-			<div class="panel-body">
-				<h3 id="seattle"></h3>
+			
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h2>六库/丽江 当前时间:</h2>
+				</div>
+				<div class="panel-body">
+					<h3 id="liuKu"></h3>
+				</div>
 			</div>
-		</div>
-		
-		<div class="panel panel-primary">
-			<div class="panel-heading">
-				<h2>六库/丽江 当前时间:</h2>
-			</div>
-			<div class="panel-body">
-				<h3 id="liuKu"></h3>
-			</div>
-		</div>
 
-		<div class="alert alert-warning" role="alert">提示: 李荔/杨建平 同志专用</div>
+			<div class="alert alert-warning" role="alert">提示: 李荔/杨建平 同志专用</div>
+		</div>
 	</body>
 	<script src="js/jquery-2.1.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script>
 		(function showTime() {
 			var now = new Date();
-			document.getElementById("liuKu").innerHTML = now.toLocaleString('zh-CN', { timeZone: 'Asia/Shanghai' });
-			document.getElementById("seattle").innerHTML = now.toLocaleString('zh-CN', { timeZone: 'America/Los_Angeles' });
+			document.getElementById("liuKu").innerHTML = now.toLocaleString('en-GB', { timeZone: 'Asia/Shanghai' });
+			document.getElementById("seattle").innerHTML = now.toLocaleString('en-GB', { timeZone: 'America/Los_Angeles' });
 			setTimeout(function() {
 				showTime();
 			}, 1000);
